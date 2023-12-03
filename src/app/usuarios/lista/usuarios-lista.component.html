@@ -1,0 +1,45 @@
+<po-page-list #poPageList p-title="Usuários">
+  <po-table
+    [p-selectable]="true"
+    [p-single-select]="true"
+    [p-sort]="true"
+    [p-striped]="true"
+    [p-items]="items"
+    [p-hide-table-search]="true"
+    [p-columns]="columns"
+  >
+    <ng-template
+      p-table-row-template
+      let-items
+      let-i="rowIndex"
+      p-tooltip="Processos"
+      [p-table-row-template-show]="mostrarDetalhes"
+    >
+      <div style="display: flex; flex-direction: column">
+        <po-widget p-title="E-mails">
+          <po-table
+            class="po-sm-12 po-md-12 po-lg-12"
+            [p-sort]="true"
+            p-container
+            [p-striped]="true"
+            [p-items]="items.emails"
+            [p-hide-columns-manager]="true"
+            [p-hide-table-search]="true"
+          ></po-table>
+        </po-widget>
+        <po-widget p-title="Grupos">
+          <po-table
+            class="po-sm-12 po-md-12 po-lg-12"
+            [p-sort]="true"
+            p-container
+            [p-striped]="true"
+            [p-items]="items.roles || []"
+            [p-hide-columns-manager]="true"
+            [p-hide-table-search]="true"
+          >
+          </po-table>
+        </po-widget>
+      </div>
+    </ng-template>
+  </po-table>
+</po-page-list>
